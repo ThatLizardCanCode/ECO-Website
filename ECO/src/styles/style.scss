@@ -1,0 +1,68 @@
+//color variables
+$color-tan:#FFF8E4;
+$color-red-dark :#962D23;
+$color-green-dark:#117373;
+
+//font variables top nav
+$font-fine: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$font-weight-fine: 300;
+$font-weight-semiBold:500;
+
+*{
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+#landing{
+    display:inline-flex;
+    height: 100vh;
+}
+
+#side-nav{
+    display: flex;
+    flex-direction: column;
+    width: 5em;
+    height: 100vh;
+
+    background-color:$color-green-dark;
+    padding: 1em;
+    position:sticky;
+
+    // #logo-large {
+    //     filter: hue-rotate(180deg); /* Rotate the hue to give a red color */
+    // }
+}
+
+#top-row{
+    // padding: 2em;
+    background-color: $color-tan;
+
+
+    #title-container{
+        font-family: $font-fine;
+        font-weight: $font-weight-fine;
+        
+
+        
+        #title-header{
+            font-weight: $font-weight-semiBold;
+            padding-bottom: 0.5em;
+        }
+    }
+}
+
+#img-landing {
+    overflow: hidden;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    }
+}
+
