@@ -5,9 +5,29 @@ $color-green-medium:#117373;
 $color-green-dark:#0D5C5C;
 
 //font variables top nav
-$font-fine: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-$font-weight-fine: 300;
-$font-weight-semiBold:500;
+.nixie-one-large {
+    font-family: "Nixie One", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.scope-one-regular {
+    font-family: "Scope One", serif;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.scope-one-fine {
+    font-family: "Scope One", serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+
+//width navs
+$sidebar-width: 7%; 
+$sidebar-img-height: 82%;
+
 
 
 //mixins
@@ -27,6 +47,5 @@ $font-weight-semiBold:500;
     object-fit: $fit; /* Maintain aspect ratio and fit within the container */
     overflow: hidden;
     
-    background-repeat: no-repeat; /* Prevent the background image from repeating */
-    background-position: center; /* Center the background image within the element */
+
 }

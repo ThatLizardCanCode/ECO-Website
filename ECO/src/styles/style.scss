@@ -3,17 +3,24 @@
 *{
   margin: 0px;
   padding: 0px;
+
+}
+
+body {
+  overflow-x: hidden; /* Hide horizontal overflow */
 }
 
 header{
-  overflow: hidden;
+  
+  height: 100vh;
+
   
   #sidebar {
     position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
-    width: 100px;
+    width: $sidebar-width;
     background-color: $color-green-dark;
   
   
@@ -25,36 +32,75 @@ header{
   
       .logo{
         filter: brightness(30%);
-        opacity: 80%;
+        opacity: 50%;
       }
     }
   
     .sidebar-bottom{
-      background-image: url("/ECO/img/Rectangle 7.png");
-      @include imgScale(contain,100%,100%);
+      margin-top: calc(100% - #{$sidebar-img-height});
+      background-image: url("/ECO/img/footer-overlay.png");
+      background-size: cover;
+      height: $sidebar-img-height;
+      width: auto;
+      background-repeat: no-repeat; /* Prevent the background image from repeating */
+      background-position: right; /* Center the background image within the element */
+
       opacity: 20%;
     }
   }
   
-  /* Width for sidebar and height for topbar will be relative to the content you can change */
+
   #topbar {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0px;
-    padding-left: 100px;
-    height: fit-content;
+    margin-left: $sidebar-width;
     background-color: $color-tan;
     border-bottom: 9px solid $color-red-dark;
-    width: 100vw;  
+    width: calc(100vw - #{$sidebar-width});
     height: 15vh;
+    display: flex; // Use flexbox for layout
+  
+    #header-left {
+      flex: 1; // Take up remaining space
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 20px; // Add padding to the left for spacing
+    }
+  
+    #header-right {
+      display: flex;
+      align-items: center; // Vertically center the content
+      padding-right: 40px; // Add padding to the right for spacing
+      border-left: 1px solid #B9B9B9;
+      margin:40px;
+    }
+  
+    .header-icons {
+      margin-left: 20px; // Add margin between the icons
+      display: flex;
+      flex-direction: column;
+      align-items: center; // Vertically center the content
+      color: $color-red-dark;
+    }
+  
+    svg {
+      width: 2em;
+      
+    }
   }
   
   /* Adjust padding to avoid content being covered by the top and sidebar */
   #news-headline {
     img{
+      
       @include imgScale(cover,100vh,100vw);
     }
   
   }
 }
 
+section{
+  margin-left: $sidebar-width;
+}
