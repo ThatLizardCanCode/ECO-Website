@@ -1,0 +1,32 @@
+//color variables
+$color-tan:#FFF8E4;
+$color-red-dark :#962D23;
+$color-green-medium:#117373;
+$color-green-dark:#0D5C5C;
+
+//font variables top nav
+$font-fine: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$font-weight-fine: 300;
+$font-weight-semiBold:500;
+
+
+//mixins
+@mixin flexAlign($justify,$align){
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+@mixin flexDirection($display, $direction){
+    display: flex;
+    flex-direction: $direction;
+}
+
+@mixin imgScale($fit, $height, $width){
+    width: $width; /* Let the width adjust to maintain aspect ratio */
+    height: $height; /* Set the height to 100% */
+    object-fit: $fit; /* Maintain aspect ratio and fit within the container */
+    overflow: hidden;
+    
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    background-position: center; /* Center the background image within the element */
+}

@@ -1,0 +1,62 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+header {
+  overflow: hidden;
+  /* Width for sidebar and height for topbar will be relative to the content you can change */
+  /* Adjust padding to avoid content being covered by the top and sidebar */
+}
+header #sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100px;
+  background-color: #0D5C5C;
+}
+header #sidebar .logo-container {
+  border-bottom: 9px solid #962D23;
+  height: 15vh;
+  background-color: #117373;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header #sidebar .logo-container .logo {
+  filter: brightness(30%);
+  opacity: 80%;
+}
+header #sidebar .sidebar-bottom {
+  background-image: url("/ECO/img/Rectangle 7.png");
+  width: 100%; /* Let the width adjust to maintain aspect ratio */
+  height: 100%; /* Set the height to 100% */
+  -o-object-fit: contain;
+     object-fit: contain; /* Maintain aspect ratio and fit within the container */
+  overflow: hidden;
+  background-repeat: no-repeat; /* Prevent the background image from repeating */
+  background-position: center; /* Center the background image within the element */
+  opacity: 20%;
+}
+header #topbar {
+  position: fixed;
+  top: 0;
+  left: 0px;
+  padding-left: 100px;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: #FFF8E4;
+  border-bottom: 9px solid #962D23;
+  width: 100vw;
+  height: 15vh;
+}
+header #news-headline img {
+  width: 100vw; /* Let the width adjust to maintain aspect ratio */
+  height: 100vh; /* Set the height to 100% */
+  -o-object-fit: cover;
+     object-fit: cover; /* Maintain aspect ratio and fit within the container */
+  overflow: hidden;
+  background-repeat: no-repeat; /* Prevent the background image from repeating */
+  background-position: center; /* Center the background image within the element */
+}/*# sourceMappingURL=style.css.map */

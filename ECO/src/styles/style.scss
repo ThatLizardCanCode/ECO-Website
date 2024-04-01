@@ -1,68 +1,60 @@
-//color variables
-$color-tan:#FFF8E4;
-$color-red-dark :#962D23;
-$color-green-dark:#117373;
-
-//font variables top nav
-$font-fine: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-$font-weight-fine: 300;
-$font-weight-semiBold:500;
+@import "./variables";
 
 *{
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
+  margin: 0px;
+  padding: 0px;
 }
 
-#landing{
-    display:inline-flex;
+header{
+  overflow: hidden;
+  
+  #sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
     height: 100vh;
-}
-
-#side-nav{
-    display: flex;
-    flex-direction: column;
-    width: 5em;
-    height: 100vh;
-
-    background-color:$color-green-dark;
-    padding: 1em;
-    position:sticky;
-
-    // #logo-large {
-    //     filter: hue-rotate(180deg); /* Rotate the hue to give a red color */
-    // }
-}
-
-#top-row{
-    // padding: 2em;
+    width: 100px;
+    background-color: $color-green-dark;
+  
+  
+    .logo-container{
+      border-bottom: 9px solid $color-red-dark;
+      height: 15vh;
+      background-color: $color-green-medium;
+      @include flexAlign(center,center);
+  
+      .logo{
+        filter: brightness(30%);
+        opacity: 80%;
+      }
+    }
+  
+    .sidebar-bottom{
+      background-image: url("/ECO/img/Rectangle 7.png");
+      @include imgScale(contain,100%,100%);
+      opacity: 20%;
+    }
+  }
+  
+  /* Width for sidebar and height for topbar will be relative to the content you can change */
+  #topbar {
+    position: fixed;
+    top: 0;
+    left: 0px;
+    padding-left: 100px;
+    height: fit-content;
     background-color: $color-tan;
-
-
-    #title-container{
-        font-family: $font-fine;
-        font-weight: $font-weight-fine;
-        
-
-        
-        #title-header{
-            font-weight: $font-weight-semiBold;
-            padding-bottom: 0.5em;
-        }
+    border-bottom: 9px solid $color-red-dark;
+    width: 100vw;  
+    height: 15vh;
+  }
+  
+  /* Adjust padding to avoid content being covered by the top and sidebar */
+  #news-headline {
+    img{
+      @include imgScale(cover,100vh,100vw);
     }
-}
-
-#img-landing {
-    overflow: hidden;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    }
+  
+  }
 }
 
