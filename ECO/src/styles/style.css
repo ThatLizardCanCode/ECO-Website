@@ -1,19 +1,41 @@
 .nixie-one-large {
   font-family: "Nixie One", system-ui;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 4em;
+}
+
+.nixie-one-regular {
+  font-family: "Nixie One", system-ui;
   font-weight: 400;
   font-style: normal;
+  font-size: 1.875em;
 }
 
 .scope-one-regular {
   font-family: "Scope One", serif;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 1.5em;
 }
 
 .scope-one-fine {
   font-family: "Scope One", serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1em;
+}
+
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.125em;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.8125em;
 }
 
 * {
@@ -94,6 +116,17 @@ header #topbar .header-icons {
 header #topbar svg {
   width: 2em;
 }
+header #news-headline #news-headline-txt {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  width: 47%;
+}
+header #news-headline #news-headline-txt p {
+  background-color: white;
+  margin-bottom: 1rem;
+  padding: 0.5em 0.5em;
+}
 header #news-headline img {
   width: 100vw; /* Let the width adjust to maintain aspect ratio */
   height: 100vh; /* Set the height to 100% */
@@ -104,4 +137,80 @@ header #news-headline img {
 
 section {
   margin-left: 7%;
+}
+
+.news-nav {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+.news-nav li {
+  padding: 3em 1em 0.5em;
+}
+.news-nav li:first-child {
+  border-bottom: 3px solid #962D23;
+}
+
+.news-card-container {
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.box-1 {
+  border: 1px solid red;
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+  grid-row-start: 1;
+  grid-row-end: span 4;
+}
+
+.box-2 {
+  border: 1px solid red;
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+  grid-row-start: 1;
+  grid-row-end: span 4;
+}
+
+.box-3 {
+  border: 1px solid red;
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+  grid-row-start: 5;
+  grid-row-end: span 4;
+}
+
+.box-4 {
+  border: 1px solid red;
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+  grid-row-start: 5;
+  grid-row-end: span 4;
+}
+
+.section-1 {
+  border: 1px solid blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-2 {
+  border: 1px solid blue;
+}
+
+.section-3 {
+  border: 1px solid blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-4 {
+  border: 1px solid blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }/*# sourceMappingURL=style.css.map */

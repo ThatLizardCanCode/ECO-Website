@@ -4,23 +4,48 @@ $color-red-dark :#962D23;
 $color-green-medium:#117373;
 $color-green-dark:#0D5C5C;
 
+$total-boxes: 4;
+$total-sections: 4;
+
 //font variables top nav
 .nixie-one-large {
     font-family: "Nixie One", system-ui;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 4em;
+}
+
+.nixie-one-regular {
+    font-family: "Nixie One", system-ui;
     font-weight: 400;
     font-style: normal;
+    font-size: 1.875em;
 }
 
 .scope-one-regular {
     font-family: "Scope One", serif;
     font-weight: 600;
-    font-size: 24px;
+    font-size: 1.5em;
 }
 
 .scope-one-fine {
     font-family: "Scope One", serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1em;
+}
+
+.poppins-semibold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 1.125em;
+}
+
+.poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 0.8125em;
 }
 
 

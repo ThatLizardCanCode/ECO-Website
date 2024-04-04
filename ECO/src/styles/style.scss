@@ -93,8 +93,19 @@ header{
   
   /* Adjust padding to avoid content being covered by the top and sidebar */
   #news-headline {
+    #news-headline-txt{
+      position: absolute;
+      top: 30%; // Position the text 50% from the top
+      left: 10%; // Position the text 50% from the left
+      width: 47%;
+
+      p{
+        background-color: white; // Example color for text, adjust as needed
+        margin-bottom: 1rem;
+        padding:0.5em 0.5em;
+      }
+    }
     img{
-      
       @include imgScale(cover,100vh,100vw);
     }
   
@@ -104,3 +115,62 @@ header{
 section{
   margin-left: $sidebar-width;
 }
+
+.news-nav{
+  display: flex;
+  justify-content: center;
+  list-style: none;
+
+  li{
+    padding: 3em 1em 0.5em;
+  }
+
+  li:first-child{
+    border-bottom: 3px solid $color-red-dark;
+    
+  }
+}
+
+.news-card-container {
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+// Generate box classes
+@for $i from 1 through $total-boxes {
+  .box-#{$i} {
+    border: 1px solid red;
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+
+    // Dynamically set grid layout for boxes
+    @if $i <= 2 {
+      grid-row-start: 1;
+      grid-row-end: span 4;
+    } @else {
+      grid-row-start: 5;
+      grid-row-end: span 4;
+    }
+  }
+}
+
+@for $i from 1 through $total-sections {
+  .section-#{$i} {
+    @if $i == 2 {
+      border: 1px solid blue;
+    } @else {
+      // Styles for sections other than section-2
+      border: 1px solid blue;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+
+
+
+
