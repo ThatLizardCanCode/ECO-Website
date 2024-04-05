@@ -1,11 +1,13 @@
 //color variables
 $color-tan:#FFF8E4;
+$color-grey-oblique:#9797972b;
+$color-grey:#979797;
 $color-red-dark :#962D23;
 $color-green-medium:#117373;
 $color-green-dark:#0D5C5C;
 
 $total-boxes: 4;
-$total-sections: 4;
+$total-sections: 8;
 
 //font variables top nav
 .nixie-one-large {
@@ -56,11 +58,12 @@ $sidebar-img-height: 82%;
 
 
 //mixins
-@mixin flexAlign($justify,$align){
+@mixin flexAlign($justify: center, $align: center) {
     display: flex;
     justify-content: $justify;
     align-items: $align;
 }
+
 @mixin flexDirection($display, $direction){
     display: flex;
     flex-direction: $direction;
@@ -68,9 +71,14 @@ $sidebar-img-height: 82%;
 
 @mixin imgScale($fit, $height, $width){
     width: $width; /* Let the width adjust to maintain aspect ratio */
-    height: $height; /* Set the height to 100% */
+    height: $height;
     object-fit: $fit; /* Maintain aspect ratio and fit within the container */
     overflow: hidden;
-    
+    object-position: center; // Center the image within the container
+}
 
+@mixin centerContent {
+    display: grid;
+    justify-content: center;
+    align-items: center;
 }
