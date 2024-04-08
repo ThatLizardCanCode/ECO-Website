@@ -1,6 +1,9 @@
 // Import variables
 @import "./variables";
 
+@import "./landing";
+@import "./about-us";
+
 // Reset styles --------------------------------------------------------------------------------------------------
 * {
   margin: 0;
@@ -8,238 +11,25 @@
   list-style: none;
 }
 
-// Body styles --------------------------------------------------------------------------------------------------
-body {
-  overflow-x: hidden;
+li{
+  cursor: pointer;
 }
 
-// Header styles --------------------------------------------------------------------------------------------------
-header {
-  height: 100vh;
-
-  // Sidebar styles --------------------------------------------------------------------------------------------------
-  #sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: $sidebar-width;
-    background-color: $color-green-dark;
-
-    // Logo container styles
-    .logo-container {
-      border-bottom: 9px solid $color-red-dark;
-      height: 15vh;
-      background-color: $color-green-medium;
-      @include flexAlign();
-
-      // Logo styles
-      .logo {
-        filter: brightness(30%);
-        opacity: 50%;
-      }
-    }
-
-    // Sidebar bottom styles --------------------------------------------------------------------------------------------------
-    .sidebar-bottom {
-      margin-top: calc(100% - #{$sidebar-img-height});
-      background-image: url("/ECO/img/footer-overlay.png");
-      background-size: cover;
-      height: $sidebar-img-height;
-      width: auto;
-      background-repeat: no-repeat;
-      background-position: right;
-      opacity: 20%;
-    }
-  }
-
-  // Topbar styles --------------------------------------------------------------------------------------------------
-  #topbar {
-    position: absolute;
-    top: 0;
-    left: 0px;
-    margin-left: $sidebar-width;
-    background-color: $color-tan;
-    border-bottom: 9px solid $color-red-dark;
-    width: calc(100vw - #{$sidebar-width});
-    height: 15vh;
-    display: flex;
-
-    // Header left styles --------------------------------------------------------------------------------------------------
-    #header-left {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding-left: 20px;
-    }
-
-    // Header right styles --------------------------------------------------------------------------------------------------
-    #header-right {
-      display: flex;
-      align-items: center;
-      padding-right: 40px;
-      border-left: 1px solid #b9b9b9;
-      margin: 40px;
-    }
-
-    // Header icons styles --------------------------------------------------------------------------------------------------
-    .header-icons {
-      margin-left: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: $color-red-dark;
-
-      svg {
-        width: 2em;
-      }
-    }
-  }
+a:link {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
 }
 
-// News headline styles --------------------------------------------------------------------------------------------------
-#news-headline {
-  #news-headline-txt {
-    position: absolute;
-    top: 30%;
-    left: 10%;
-    width: 47%;
-
-    p {
-      background-color: white;
-      margin-bottom: 1rem;
-      padding: 0.5em 0.5em;
-    }
-  }
-
-  img {
-    @include imgScale(cover, 100vh, 100vw);
-  }
-}
-
-// Section styles --------------------------------------------------------------------------------------------------
-section {
-  margin-left: $sidebar-width;
-
-  button{
-    @include flexAlign();
-  }
-}
-
-// News nav styles --------------------------------------------------------------------------------------------------
-.news-nav {
-  @include flexAlign();
-
-  li {
-    padding: 4em 1em 0.5em;
-
-    &:first-child {
-      border-bottom: 3px solid $color-red-dark;
-    }
-  }
-}
-
-// News card container styles --------------------------------------------------------------------------------------------------
-.news-card-container {
-  @include centerContent;
-  grid-row-gap: 10px;
-  margin: 8em 15em;
-
-  .template{
-    visibility: collapse;
-  }
-
-  .section-1 img {
-    @include imgScale(cover, 100%, 100%);
-  }
-
-  p {
-    padding: 0.5em;
-  }
-
-  .section-3 {
-    border-bottom: 1px solid $color-grey-oblique;
-
-    ul {
-      // height: 10px;
-      @include flexAlign(center);
-
-      li {
-        margin: 0.5em;
-        color: $color-grey;
-
-        &:first-child {
-          font-weight: 600;
-          color: black;
-          margin-right: 1em;
-        }
-      }
-    }
-  }
-
-  .section-4 {
-    .news-social-icons {
-      @include flexAlign();
-      margin: 0em 0.8em;
-    }
-
-    svg {
-      width: 16px;
-    }
-
-    p {
-      color: $color-grey;
-      font-size: 12px;
-    }
-  }
+a:visited {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
 }
 
 
-// Generate box classes
-@for $i from 1 through $total-boxes {
-  .box-#{$i} {
-    border: 2px solid $color-grey-oblique;
-    box-shadow: 0px 0px 10px 5px $color-grey-oblique;
-    border-radius: 6px;
-    margin: 1em;
-    display: grid;
-    width: 30em; // Set fixed width
 
-    // Adjust grid-column and grid-row spans for each box
-    @if $i == 1 {
-      grid-template-rows: repeat(2, 1fr); // 2 columns for the first row
-      grid-row-start: 1;
-      grid-row-end: span 8; // Span 8 rows for the first box
-    } @else if $i == 2 {
-      grid-template-rows: repeat(2, 1fr); // 2 rows for the second row
-      grid-row-start: 1;
-      grid-row-end: span 8; // Span 8 rows for the second box
-    } @else if $i == 3 {
-      grid-template-rows: repeat(2, 1fr); // 2 rows for the third row
-      grid-row-start: 9;
-      grid-row-end: span 8; // Span 8 rows for the third box
-    } @else if $i == 4 {
-      grid-template-rows: repeat(2, 1fr); // 2 rows for the fourth row
-      grid-row-start: 9;
-      grid-row-end: span 8; // Span 8 rows for the fourth box
-    }
-  }
-}
-
-// Section classes
-@for $i from 1 through $total-sections {
-  .section-#{$i} {
-    @if $i != 1 {
-      padding: 1em;
-    }
-
-    @if $i > 2 {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-}
-
-
+// footer{
+//   background-color: $color-green-medium;
+//   width: 100vw;
+// }

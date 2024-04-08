@@ -1,0 +1,296 @@
+// @import "./variables";
+
+// Body styles --------------------------------------------------------------------------------------------------
+body {
+    overflow-x: hidden;
+}
+
+// Header styles --------------------------------------------------------------------------------------------------
+header {
+    height: 100vh;
+
+    // Sidebar styles --------------------------------------------------------------------------------------------------
+    .sidebar {
+        z-index: 1;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: $sidebar-width; // Start with the sidebar collapsed
+        background-color: $color-green-dark;
+        transition: width 0.5s ease; // Add transition for smooth width change
+        .nav-items {
+            visibility: hidden;
+        }
+
+        //open navbar styles
+        &.open {
+            width: $open-sidebar-width; // Expand the sidebar when open
+
+            .nav-items {
+                color: white;
+                visibility: visible;
+                margin: $margin-md $margin-xs;
+
+                .title {
+                    border-bottom: 3px solid $color-grey-oblique;
+                    font-weight: 600;
+                }
+
+                li {
+                    padding: $padding-xs;
+                    &:not(:first-child):active {
+                        text-decoration: underline;
+                        color: $color-red-dark;
+                        font-weight: 600;
+                    }
+                }
+            }
+
+            .arrow-icon {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    // Logo container styles
+    .logo-container {
+        border-bottom: $border-width-nav solid $color-red-dark;
+        height: 15vh;
+        background-color: $color-green-medium;
+        @include flexAlign();
+
+        // Logo styles
+        .logo {
+            filter: brightness(30%);
+            opacity: 50%;
+        }
+    }
+
+    // Sidebar bottom styles --------------------------------------------------------------------------------------------------
+    .sidebar-bottom {
+        margin-top: calc(100% - #{$sidebar-img-height});
+        background-image: url("/ECO/img/Rectangle 7.png");
+        background-color: $color-green-dark-oblique;
+        background-size: cover;
+        height: $sidebar-img-height;
+        width: auto;
+        background-repeat: no-repeat;
+        background-position: right;
+
+        .arrow-icon {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            margin: 10px;
+            width: 30px;
+            height: auto;
+            fill: rgba(255, 255, 255, 0.772);
+            cursor: pointer;
+        }
+    }
+}
+
+// Topbar styles --------------------------------------------------------------------------------------------------
+#topbar {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    margin-left: $sidebar-width;
+    background-color: $color-tan;
+    border-bottom: $border-width-nav solid $color-red-dark;
+    width: calc(100vw - #{$sidebar-width});
+    height: 15vh;
+    display: flex;
+
+    // Header left styles --------------------------------------------------------------------------------------------------
+    #header-left {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: $padding-md; // Use padding variable
+    }
+
+    // Header right styles --------------------------------------------------------------------------------------------------
+    #header-right {
+        display: flex;
+        align-items: center;
+        padding-right: $padding-lg; // Use padding variable
+        border-left: $border-width solid #b9b9b9; // Use border variables
+        margin: $margin-md; // Use margin variable
+    }
+
+    // Header icons styles --------------------------------------------------------------------------------------------------
+    .header-icons {
+        margin-left: $margin-md; // Use margin variable
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: $color-red-dark;
+
+        svg {
+            width: 3em;
+        }
+    }
+}
+
+// News headline styles --------------------------------------------------------------------------------------------------
+#news-headline {
+    #news-headline-txt {
+        position: absolute;
+        top: 30%;
+        left: 10%;
+        width: 47%;
+
+        p {
+            background-color: white;
+            margin-bottom: $padding-sm; // Use padding variable
+            padding: $padding-sm; // Use padding variable
+        }
+    }
+
+    img {
+        @include imgScale(cover, 100vh, 100vw);
+    }
+}
+
+// Section styles --------------------------------------------------------------------------------------------------
+section {
+    margin-left: $sidebar-width;
+
+    .see-more-btn {
+        text-align: center;
+
+        button {
+            background-color: rgba(255, 255, 255, 0);
+            border: $border-width solid $color-red-dark; // Use border variables
+            color: $color-red-dark;
+            padding: $padding-sm $padding-md; // Use padding variables
+            text-transform: uppercase;
+
+            &:hover {
+                cursor: pointer;
+                background-color: $color-red-dark;
+                color: white;
+                box-shadow: 0px 0px 10px 5px $color-grey-oblique;
+            }
+        }
+    }
+}
+
+// News nav styles --------------------------------------------------------------------------------------------------
+.news-nav {
+    @include flexAlign();
+
+    li {
+        padding: $padding-lg $padding-sm $padding-xs $padding-sm; // Use padding variables
+
+        &:first-child {
+            border-bottom: $border-width solid $color-red-dark; // Use border variables
+        }
+    }
+}
+
+// News card container styles --------------------------------------------------------------------------------------------------
+.template {
+    visibility: collapse;
+    display: none;
+}
+
+.news-card-container {
+    @include centerGridContent;
+    grid-row-gap: $padding-md; // Use padding variable
+    margin: $margin-lg; // Use margin variable
+
+    .section-1 img {
+        @include imgScale(cover, 100%, 100%);
+    }
+
+    p {
+        padding: $padding-sm; // Use padding variable
+    }
+
+    .section-3 {
+        border-bottom: $border-width solid $color-grey-oblique; // Use border variables
+
+        ul {
+            // height: 10px;
+            @include flexAlign(center);
+
+            li {
+                margin: $padding-sm; // Use padding variable
+                color: $color-grey;
+
+                &:first-child {
+                    font-weight: 600;
+                    color: black;
+                    margin-right: $padding-md; // Use padding variable
+                }
+            }
+        }
+    }
+
+    .section-4 {
+        .news-social-icons {
+            @include flexAlign();
+            margin: 0em $padding-sm; // Use padding variable
+        }
+
+        svg {
+            width: 16px;
+        }
+
+        p {
+            color: $color-grey;
+        }
+    }
+}
+
+// Generate box classes
+@for $i from 1 through $total-boxes {
+    .box-#{$i} {
+        border: $border-width solid $color-grey-oblique; // Use border variables
+        box-shadow: 0px 0px 10px 5px $color-grey-oblique;
+        border-radius: 6px;
+        margin: $margin-sm; // Use margin variable
+        display: grid;
+        width: 30em; // Set fixed width
+        height: 40em;
+
+        // Adjust grid-column and grid-row spans for each box
+        @if $i == 1 {
+            grid-template-rows: repeat(2, 1fr); // 2 columns for the first row
+            grid-row-start: 1;
+            grid-row-end: span 8; // Span 8 rows for the first box
+        } @else if $i == 2 {
+            grid-template-rows: repeat(2, 1fr); // 2 rows for the second row
+            grid-row-start: 1;
+            grid-row-end: span 8; // Span 8 rows for the second box
+        } @else if $i == 3 {
+            grid-template-rows: repeat(2, 1fr); // 2 rows for the third row
+            grid-row-start: 9;
+            grid-row-end: span 8; // Span 8 rows for the third box
+        } @else if $i == 4 {
+            grid-template-rows: repeat(2, 1fr); // 2 rows for the fourth row
+            grid-row-start: 9;
+            grid-row-end: span 8; // Span 8 rows for the fourth box
+        }
+    }
+}
+
+// Section classes
+@for $i from 1 through $total-sections {
+    .section-#{$i} {
+        @if $i != 1 {
+            padding: $padding-sm; // Use padding variable
+        }
+
+        @if $i > 2 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 1.5em;
+        }
+    }
+}

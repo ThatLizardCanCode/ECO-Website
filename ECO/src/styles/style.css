@@ -38,12 +38,6 @@
   font-size: 0.8125em;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
 body {
   overflow-x: hidden;
 }
@@ -51,70 +45,109 @@ body {
 header {
   height: 100vh;
 }
-header #sidebar {
+header .sidebar {
+  z-index: 1;
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
-  width: 7%;
+  width: 9%;
   background-color: #0D5C5C;
+  transition: width 0.5s ease;
 }
-header #sidebar .logo-container {
-  border-bottom: 9px solid #962D23;
+header .sidebar .nav-items {
+  visibility: hidden;
+}
+header .sidebar.open {
+  width: 15%;
+}
+header .sidebar.open .nav-items {
+  color: white;
+  visibility: visible;
+  margin: 2em 0.5em;
+}
+header .sidebar.open .nav-items .title {
+  border-bottom: 3px solid rgba(151, 151, 151, 0.168627451);
+  font-weight: 600;
+}
+header .sidebar.open .nav-items li {
+  padding: 0.5em;
+}
+header .sidebar.open .nav-items li:not(:first-child):active {
+  text-decoration: underline;
+  color: #962D23;
+  font-weight: 600;
+}
+header .sidebar.open .arrow-icon {
+  transform: rotate(180deg);
+}
+header .logo-container {
+  border-bottom: 7px solid #962D23;
   height: 15vh;
   background-color: #117373;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-header #sidebar .logo-container .logo {
+header .logo-container .logo {
   filter: brightness(30%);
   opacity: 50%;
 }
-header #sidebar .sidebar-bottom {
+header .sidebar-bottom {
   margin-top: calc(100% - 82%);
-  background-image: url("/ECO/img/footer-overlay.png");
+  background-image: url("/ECO/img/Rectangle 7.png");
+  background-color: rgba(13, 92, 92, 0.2);
   background-size: cover;
   height: 82%;
   width: auto;
   background-repeat: no-repeat;
   background-position: right;
-  opacity: 20%;
 }
-header #topbar {
+header .sidebar-bottom .arrow-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 10px;
+  width: 30px;
+  height: auto;
+  fill: rgba(255, 255, 255, 0.772);
+  cursor: pointer;
+}
+
+#topbar {
   position: absolute;
   top: 0;
   left: 0px;
-  margin-left: 7%;
+  margin-left: 9%;
   background-color: #FFF8E4;
-  border-bottom: 9px solid #962D23;
-  width: calc(100vw - 7%);
+  border-bottom: 7px solid #962D23;
+  width: calc(100vw - 9%);
   height: 15vh;
   display: flex;
 }
-header #topbar #header-left {
+#topbar #header-left {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 20px;
+  padding-left: 2em;
 }
-header #topbar #header-right {
+#topbar #header-right {
   display: flex;
   align-items: center;
-  padding-right: 40px;
-  border-left: 1px solid #b9b9b9;
-  margin: 40px;
+  padding-right: 4em;
+  border-left: 2px solid #b9b9b9;
+  margin: 2em;
 }
-header #topbar .header-icons {
-  margin-left: 20px;
+#topbar .header-icons {
+  margin-left: 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: #962D23;
 }
-header #topbar .header-icons svg {
-  width: 2em;
+#topbar .header-icons svg {
+  width: 3em;
 }
 
 #news-headline #news-headline-txt {
@@ -125,8 +158,8 @@ header #topbar .header-icons svg {
 }
 #news-headline #news-headline-txt p {
   background-color: white;
-  margin-bottom: 1rem;
-  padding: 0.5em 0.5em;
+  margin-bottom: 1em;
+  padding: 1em;
 }
 #news-headline img {
   width: 100vw; /* Let the width adjust to maintain aspect ratio */
@@ -139,12 +172,23 @@ header #topbar .header-icons svg {
 }
 
 section {
-  margin-left: 7%;
+  margin-left: 9%;
 }
-section button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+section .see-more-btn {
+  text-align: center;
+}
+section .see-more-btn button {
+  background-color: rgba(255, 255, 255, 0);
+  border: 2px solid #962D23;
+  color: #962D23;
+  padding: 1em 2em;
+  text-transform: uppercase;
+}
+section .see-more-btn button:hover {
+  cursor: pointer;
+  background-color: #962D23;
+  color: white;
+  box-shadow: 0px 0px 10px 5px rgba(151, 151, 151, 0.168627451);
 }
 
 .news-nav {
@@ -153,21 +197,23 @@ section button {
   align-items: center;
 }
 .news-nav li {
-  padding: 4em 1em 0.5em;
+  padding: 4em 1em 0.5em 1em;
 }
 .news-nav li:first-child {
-  border-bottom: 3px solid #962D23;
+  border-bottom: 2px solid #962D23;
+}
+
+.template {
+  visibility: collapse;
+  display: none;
 }
 
 .news-card-container {
   display: grid;
   justify-content: center;
   align-items: center;
-  grid-row-gap: 10px;
-  margin: 8em 15em;
-}
-.news-card-container .template {
-  visibility: collapse;
+  grid-row-gap: 2em;
+  margin: 4em;
 }
 .news-card-container .section-1 img {
   width: 100%; /* Let the width adjust to maintain aspect ratio */
@@ -179,10 +225,10 @@ section button {
      object-position: center;
 }
 .news-card-container p {
-  padding: 0.5em;
+  padding: 1em;
 }
 .news-card-container .section-3 {
-  border-bottom: 1px solid rgba(151, 151, 151, 0.168627451);
+  border-bottom: 2px solid rgba(151, 151, 151, 0.168627451);
 }
 .news-card-container .section-3 ul {
   display: flex;
@@ -190,26 +236,25 @@ section button {
   align-items: center;
 }
 .news-card-container .section-3 ul li {
-  margin: 0.5em;
+  margin: 1em;
   color: #979797;
 }
 .news-card-container .section-3 ul li:first-child {
   font-weight: 600;
   color: black;
-  margin-right: 1em;
+  margin-right: 2em;
 }
 .news-card-container .section-4 .news-social-icons {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0em 0.8em;
+  margin: 0em 1em;
 }
 .news-card-container .section-4 svg {
   width: 16px;
 }
 .news-card-container .section-4 p {
   color: #979797;
-  font-size: 12px;
 }
 
 .box-1 {
@@ -219,6 +264,7 @@ section button {
   margin: 1em;
   display: grid;
   width: 30em;
+  height: 40em;
   grid-template-rows: repeat(2, 1fr);
   grid-row-start: 1;
   grid-row-end: span 8;
@@ -231,6 +277,7 @@ section button {
   margin: 1em;
   display: grid;
   width: 30em;
+  height: 40em;
   grid-template-rows: repeat(2, 1fr);
   grid-row-start: 1;
   grid-row-end: span 8;
@@ -243,6 +290,7 @@ section button {
   margin: 1em;
   display: grid;
   width: 30em;
+  height: 40em;
   grid-template-rows: repeat(2, 1fr);
   grid-row-start: 9;
   grid-row-end: span 8;
@@ -255,6 +303,7 @@ section button {
   margin: 1em;
   display: grid;
   width: 30em;
+  height: 40em;
   grid-template-rows: repeat(2, 1fr);
   grid-row-start: 9;
   grid-row-end: span 8;
@@ -269,6 +318,7 @@ section button {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 1.5em;
 }
 
 .section-4 {
@@ -276,6 +326,7 @@ section button {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 1.5em;
 }
 
 .section-5 {
@@ -283,6 +334,7 @@ section button {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 1.5em;
 }
 
 .section-6 {
@@ -290,6 +342,7 @@ section button {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 1.5em;
 }
 
 .section-7 {
@@ -297,6 +350,7 @@ section button {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 1.5em;
 }
 
 .section-8 {
@@ -304,4 +358,27 @@ section button {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 1.5em;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  cursor: pointer;
+}
+
+a:link {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
+
+a:visited {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
 }/*# sourceMappingURL=style.css.map */
